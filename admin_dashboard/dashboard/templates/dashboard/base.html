@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <style>
+        /* Basic Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hamburger Icon (3-line menu) */
+.hamburger {
+  font-size: 30px;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+}
+
+/* Vertical Menu Bar */
+.menu {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hide the menu off-screen initially */
+  width: 250px;
+  height: 100%;
+  background-color: rgb(185, 183, 183);
+  transition: left 0.3s ease;
+  padding-top: 50px;
+}
+
+/* Menu Items */
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu ul li {
+  padding: 15px;
+  text-align: center;
+}
+
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+}
+
+.menu ul li a:hover {
+  background-color: #575757;
+}
+
+/* Style for when the menu is open */
+.menu.open {
+  left: 0; /* Show the menu when the 'open' class is added */
+}
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+                    <div class="hamburger" onclick="toggleMenu()">
+                        &#9776; <!-- This is the 3-line icon -->
+                      </div>
+                    
+                      <!-- Vertical Menu Bar -->
+                      <div id="menu" class="menu">
+                        <ul>
+                          <li><a href="#">Home</a></li>
+                          <li><a href="#">About</a></li>
+                          <li><a href="#">Services</a></li>
+                          <li><a href="#">Contact</a></li>
+                        </ul>
+                      </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                {% block content %}
+                <!-- Dynamic content will go here -->
+                {% endblock %}
+            </main>
+        </div>
+    </div>
+    <script>
+        // Function to toggle the menu
+function toggleMenu() {
+  var menu = document.getElementById('menu');
+  menu.classList.toggle('open'); // Add or remove the 'open' class
+}
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
